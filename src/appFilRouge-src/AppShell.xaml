@@ -6,9 +6,23 @@
     xmlns:local="clr-namespace:appFilRouge"
     Title="appFilRouge">
 
-    <ShellContent
-        Title="Home"
-        ContentTemplate="{DataTemplate local:MainPage}"
-        Route="MainPage" />
+    
 
+    <TabBar>
+        <Tab Title="Ingredients" Icon="ingredients.png">
+            <ShellContent
+                ContentTemplate="{DataTemplate local:MainPage}"
+                Route="MainPage" />
+        </Tab>
+        <Tab Title="Meals" Icon="meals.png">
+            <ShellContent
+                ContentTemplate="{DataTemplate local:MainPage}"
+                Route="MainPage" />
+        </Tab>
+        <Tab Title="Daily" Icon="daily.png">
+            <ShellContent
+                ContentTemplate="{DataTemplate local:MainPage}"
+                Route="MainPage" />
+        </Tab>
+    </TabBar>
 </Shell>
