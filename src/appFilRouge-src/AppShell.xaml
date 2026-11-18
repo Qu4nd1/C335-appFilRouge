@@ -16,13 +16,13 @@
         </Tab>
         <Tab Title="Meals" Icon="meals.png">
             <ShellContent
-                ContentTemplate="{DataTemplate local:MainPage}"
-                Route="MainPage" />
+                ContentTemplate="{DataTemplate local:Meals}"
+                Route="Meals" />
         </Tab>
         <Tab Title="Daily" Icon="daily.png">
             <ShellContent
-                ContentTemplate="{DataTemplate local:MainPage}"
-                Route="MainPage" />
+                ContentTemplate="{DataTemplate local:DailyObjectif}"
+                Route="DailyObjectif" />
         </Tab>
     </TabBar>
 </Shell>

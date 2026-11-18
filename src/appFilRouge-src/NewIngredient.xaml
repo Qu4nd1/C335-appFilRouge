@@ -1,12 +1,60 @@
 <?xml version="1.0" encoding="utf-8" ?>
-<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
-             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="appFilRouge.NewIngredient"
-             Title="NewIngredient">
-    <VerticalStackLayout>
-        <Label 
-            Text="Welcome to .NET MAUI!"
-            VerticalOptions="Center" 
-            HorizontalOptions="Center" />
-    </VerticalStackLayout>
+<ContentPage
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    Title="Nouvel ingrédient"
+    BackgroundColor="#FBFAF6">
+
+    <ScrollView>
+        <VerticalStackLayout Padding="24,28" Spacing="18">
+            <Button Text="‹  Retour" HorizontalOptions="Start" Padding="0"
+                    BackgroundColor="Transparent" TextColor="#315246" />
+            <VerticalStackLayout Spacing="4">
+                <Label Text="NOUVEL ÉLÉMENT" FontSize="11" FontAttributes="Bold" TextColor="#668071" CharacterSpacing="1.5" />
+                <Label Text="Ajouter un ingrédient" FontSize="29" FontAttributes="Bold" TextColor="#183D33" />
+            </VerticalStackLayout>
+
+            <VerticalStackLayout Spacing="7">
+                <Label Text="Nom de l’ingrédient" FontAttributes="Bold" TextColor="#315246" />
+                <Border Padding="14,6" BackgroundColor="#FFFFFF" Stroke="#D9DDD6">
+                    <Border.StrokeShape>
+                        <RoundRectangle CornerRadius="12" />
+                    </Border.StrokeShape>
+                    <Entry Text="Avocat" MaxLength="50" TextColor="#183D33" />
+                </Border>
+            </VerticalStackLayout>
+
+            <VerticalStackLayout Spacing="7">
+                <Label Text="Calories / 100 g" FontAttributes="Bold" TextColor="#315246" />
+                <Border Padding="14,6" BackgroundColor="#FFFFFF" Stroke="#D9DDD6">
+                    <Border.StrokeShape>
+                        <RoundRectangle CornerRadius="12" />
+                    </Border.StrokeShape>
+                    <Grid ColumnDefinitions="*,Auto">
+                        <Entry Text="160" Keyboard="Numeric" TextColor="#183D33" />
+                        <Label Grid.Column="1" Text="kcal" VerticalOptions="Center" TextColor="#78827D" />
+                    </Grid>
+                </Border>
+            </VerticalStackLayout>
+
+            <VerticalStackLayout Spacing="7">
+                <Label Text="Protéines / 100 g" FontAttributes="Bold" TextColor="#315246" />
+                <Border Padding="14,6" BackgroundColor="#FFFFFF" Stroke="#D9DDD6">
+                    <Border.StrokeShape>
+                        <RoundRectangle CornerRadius="12" />
+                    </Border.StrokeShape>
+                    <Grid ColumnDefinitions="*,Auto">
+                        <Entry Text="2" Keyboard="Numeric" TextColor="#183D33" />
+                        <Label Grid.Column="1" Text="g" VerticalOptions="Center" TextColor="#78827D" />
+                    </Grid>
+                </Border>
+            </VerticalStackLayout>
+
+            <Label Text="✓  Les valeurs saisies sont valides." Padding="14"
+                   BackgroundColor="#EEF4D7" TextColor="#315246" FontSize="12" />
+            <Button Text="Enregistrer l’ingrédient" Padding="16" CornerRadius="12"
+                    BackgroundColor="#19483B" TextColor="#FFFFFF" FontAttributes="Bold" />
+            <Button Text="Annuler" BackgroundColor="Transparent" TextColor="#668071" />
+        </VerticalStackLayout>
+    </ScrollView>
 </ContentPage>
