@@ -22,6 +22,9 @@ namespace appFilRouge
             // New ingredient form
             builder.Services.AddTransient<NewIngredientViewModel>();
             builder.Services.AddTransient<NewIngredient>();
+
+            builder.Services.AddTransient<IngredientsViewModel>();
+            builder.Services.AddTransient<MainPage>();
 #if DEBUG
             builder.Logging.AddDebug();
 #endif
