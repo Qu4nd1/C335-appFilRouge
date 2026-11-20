@@ -9,7 +9,7 @@ using System.Text.Json.Serialization;
 
 namespace appFilRouge.Models
 {
-    class Meal
+    public class Meal
     {
         public Guid Id { get; set; }
         public string Name { get; set; }

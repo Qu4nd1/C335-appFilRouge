@@ -7,7 +7,7 @@ using System.Text.Json.Serialization;
 
 namespace appFilRouge.Models
 {
-    class MealItem
+    public class MealItem
     {
         public Guid Id { get; set; } = Guid.NewGuid();
         public Guid MealId { get; set; }
