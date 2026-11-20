@@ -60,53 +60,68 @@
 	</ItemGroup>
 
 	<ItemGroup>
+	  <AndroidResource Remove="NewFolder\**" />
+	  <Compile Remove="NewFolder\**" />
+	  <EmbeddedResource Remove="NewFolder\**" />
+	  <MauiCss Remove="NewFolder\**" />
+	  <MauiXaml Remove="NewFolder\**" />
+	  <None Remove="NewFolder\**" />
+	</ItemGroup>
+
+	<ItemGroup>
 		<PackageReference Include="Microsoft.Maui.Controls" Version="$(MauiVersion)" />
 		<PackageReference Include="Microsoft.Extensions.Logging.Debug" Version="9.0.0" />
 	</ItemGroup>
 
 	<ItemGroup>
-	  <Compile Update="NewDailyObjectif.xaml.cs">
+	  <Compile Update="Pages\NewDailyObjectif.xaml.cs">
 	    <DependentUpon>NewDailyObjectif.xaml</DependentUpon>
 	  </Compile>
 	</ItemGroup>
 
 	<ItemGroup>
-	  <MauiXaml Update="NewDailyObjectif.xaml">
+	  <MauiXaml Update="Pages\NewDailyObjectif.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
-	  <MauiXaml Update="DailyObjectif.xaml">
+	  <MauiXaml Update="Pages\DailyObjectif.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
-	  <MauiXaml Update="DeleteIngredient.xaml">
+	  <MauiXaml Update="Pages\DeleteIngredient.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
-	  <MauiXaml Update="DetailIngredient.xaml">
+	  <MauiXaml Update="Pages\DetailIngredient.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
-	  <MauiXaml Update="DetailMeal.xaml">
+	  <MauiXaml Update="Pages\DetailMeal.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
-	  <MauiXaml Update="EditDailyObjectif.xaml">
+	  <MauiXaml Update="Pages\EditDailyObjectif.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
-	  <MauiXaml Update="EditIngredient.xaml">
+	  <MauiXaml Update="Pages\EditIngredient.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
-	  <MauiXaml Update="EditMeal.xaml">
+	  <MauiXaml Update="Pages\EditMeal.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
-	  <MauiXaml Update="Meals.xaml">
+	  <MauiXaml Update="Pages\Meals.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
-	  <MauiXaml Update="NewIngredient.xaml">
+	  <MauiXaml Update="Pages\NewIngredient.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
-	  <MauiXaml Update="NewMeal.xaml">
+	  <MauiXaml Update="Pages\NewMeal.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
-	  <MauiXaml Update="SummaryDailyObjectif.xaml">
+	  <MauiXaml Update="Pages\SummaryDailyObjectif.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
+	</ItemGroup>
+
+	<ItemGroup>
+	  <Folder Include="Converters\" />
+	  <Folder Include="Views\" />
+	  <Folder Include="ViewModels\" />
 	</ItemGroup>
 
 </Project>

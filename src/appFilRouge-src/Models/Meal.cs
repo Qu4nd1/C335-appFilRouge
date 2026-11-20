@@ -14,8 +14,8 @@ namespace appFilRouge.Models
         public Guid Id { get; set; }
         public string Name { get; set; }
         public string Description { get; set; }
-        [JsonIgnore] public double TotalCalories = Items.Sum(i => i.Calories);
-        [JsonIgnore] public double TotalProteins = Items.Sum(i => i.Proteins);
+        [JsonIgnore] public double TotalCalories => Items.Sum(i => i.Calories);
+        [JsonIgnore] public double TotalProteins => Items.Sum(i => i.Proteins);
         public List<MealItem> Items { get; set; } = new();
         public DateTime CreatedAt { get; set; }
 
