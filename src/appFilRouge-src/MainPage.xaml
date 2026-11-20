@@ -2,6 +2,7 @@
 <ContentPage
     xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    x:Class="appFilRouge.MainPage"
     Title="Ingrédients"
     BackgroundColor="#FBFAF6">
 
@@ -10,18 +11,18 @@
             <VerticalStackLayout Padding="24,28" Spacing="18">
                 <Grid ColumnDefinitions="*,Auto">
                     <VerticalStackLayout Spacing="2">
-                        <Label Text="MA BIBLIOTHÈQUE" FontSize="11" FontAttributes="Bold" TextColor="#668071" CharacterSpacing="1.5" />
-                        <Label Text="Ingrédients" FontSize="30" FontAttributes="Bold" TextColor="#183D33" />
+                        <Label Text="MY LIBRARY" FontSize="11" FontAttributes="Bold" TextColor="#668071" CharacterSpacing="1.5" />
+                        <Label Text="Ingredients" FontSize="30" FontAttributes="Bold" TextColor="#183D33" />
                     </VerticalStackLayout>
-                    <Button Grid.Column="1" Text="+" FontSize="24" WidthRequest="48" HeightRequest="48"
-                            CornerRadius="24" BackgroundColor="#DDECAA" TextColor="#183D33" />
+                    <Button x:Name="AddButton" Clicked="AddButtonClicked" Grid.Column="1" Text="+" FontSize="24" WidthRequest="48" HeightRequest="48"
+                            CornerRadius="24" BackgroundColor="#DDECAA" TextColor="#183D33" HorizontalOptions="Center" VerticalOptions="Center"/>
                 </Grid>
 
-                <SearchBar x:Name="MainSearchBar"  Placeholder="Rechercher un ingrédient" BackgroundColor="#FFFFFF"
+                <SearchBar x:Name="MainSearchBar"  Placeholder="Search an ingredient" BackgroundColor="#FFFFFF"
                            TextColor="#183D33" PlaceholderColor="#89908C" />
 
                 <Grid ColumnDefinitions="*,Auto">
-                    <Label Text="MES INGRÉDIENTS" FontSize="11" FontAttributes="Bold" TextColor="#668071" />
+                    <Label Text="MY INGREDIENTS" FontSize="11" FontAttributes="Bold" TextColor="#668071" />
                     <Label Grid.Column="1" Text="4" FontSize="11" FontAttributes="Bold" TextColor="#183D33" />
                 </Grid>
 
@@ -38,7 +39,7 @@
                                 <Label Text="PO" HorizontalOptions="Center" VerticalOptions="Center" FontSize="11" FontAttributes="Bold" />
                             </Border>
                             <VerticalStackLayout Grid.Column="1" Spacing="2">
-                                <Label Text="Poulet" FontAttributes="Bold" TextColor="#183D33" />
+                                <Label Text="Chicken" FontAttributes="Bold" TextColor="#183D33" />
                                 <Label Text="165 kcal · 31 g prot. / 100 g" FontSize="12" TextColor="#78827D" />
                             </VerticalStackLayout>
                             <Label Grid.Column="2" Text="›" FontSize="24" TextColor="#89908C" />
@@ -52,7 +53,7 @@
                                 <Label Text="RI" HorizontalOptions="Center" VerticalOptions="Center" FontSize="11" FontAttributes="Bold" />
                             </Border>
                             <VerticalStackLayout Grid.Column="1" Spacing="2">
-                                <Label Text="Riz complet" FontAttributes="Bold" TextColor="#183D33" />
+                                <Label Text="Brown Rice" FontAttributes="Bold" TextColor="#183D33" />
                                 <Label Text="130 kcal · 2,7 g prot. / 100 g" FontSize="12" TextColor="#78827D" />
                             </VerticalStackLayout>
                             <Label Grid.Column="2" Text="›" FontSize="24" TextColor="#89908C" />
@@ -66,7 +67,7 @@
                                 <Label Text="BR" HorizontalOptions="Center" VerticalOptions="Center" FontSize="11" FontAttributes="Bold" />
                             </Border>
                             <VerticalStackLayout Grid.Column="1" Spacing="2">
-                                <Label Text="Brocoli" FontAttributes="Bold" TextColor="#183D33" />
+                                <Label Text="Brokkoli" FontAttributes="Bold" TextColor="#183D33" />
                                 <Label Text="34 kcal · 2,8 g prot. / 100 g" FontSize="12" TextColor="#78827D" />
                             </VerticalStackLayout>
                             <Label Grid.Column="2" Text="›" FontSize="24" TextColor="#89908C" />
@@ -77,10 +78,10 @@
                                 <Border.StrokeShape>
                                     <RoundRectangle CornerRadius="19" />
                                 </Border.StrokeShape>
-                                <Label Text="ŒU" HorizontalOptions="Center" VerticalOptions="Center" FontSize="11" FontAttributes="Bold" />
+                                <Label Text="EG" HorizontalOptions="Center" VerticalOptions="Center" FontSize="11" FontAttributes="Bold" />
                             </Border>
                             <VerticalStackLayout Grid.Column="1" Spacing="2">
-                                <Label Text="Œuf" FontAttributes="Bold" TextColor="#183D33" />
+                                <Label Text="Eggs" FontAttributes="Bold" TextColor="#183D33" />
                                 <Label Text="143 kcal · 12,6 g prot. / 100 g" FontSize="12" TextColor="#78827D" />
                             </VerticalStackLayout>
                             <Label Grid.Column="2" Text="›" FontSize="24" TextColor="#89908C" />
@@ -92,11 +93,5 @@
                        BackgroundColor="#EEF4D7" TextColor="#315246" FontSize="12" />
             </VerticalStackLayout>
         </ScrollView>
-
-        <Grid Grid.Row="1" Padding="12,10,12,16" ColumnDefinitions="*,*,*" BackgroundColor="#FFFFFF">
-            <Label Text="Ingrédients" HorizontalTextAlignment="Center" FontAttributes="Bold" TextColor="#19483B" />
-            <Label Grid.Column="1" Text="Repas" HorizontalTextAlignment="Center" TextColor="#89908C" />
-            <Label Grid.Column="2" Text="Du jour" HorizontalTextAlignment="Center" TextColor="#89908C" />
-        </Grid>
     </Grid>
 </ContentPage>

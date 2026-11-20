@@ -5,7 +5,13 @@
 
         public MainPage()
         {
-            //InitializeComponent();
+            InitializeComponent();
+
+
+        }
+        private async void AddButtonClicked(object sender, EventArgs e)
+        {
+            await Shell.Current.GoToAsync(nameof(NewIngredient));
         }
 
         

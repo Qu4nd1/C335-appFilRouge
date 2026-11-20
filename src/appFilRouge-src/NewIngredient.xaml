@@ -3,6 +3,7 @@
     xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
     Title="Nouvel ingrédient"
+    x:Class="appFilRouge.NewIngredient"
     BackgroundColor="#FBFAF6">
 
     <ScrollView>
@@ -10,17 +11,17 @@
             <Button Text="‹  Retour" HorizontalOptions="Start" Padding="0"
                     BackgroundColor="Transparent" TextColor="#315246" />
             <VerticalStackLayout Spacing="4">
-                <Label Text="NOUVEL ÉLÉMENT" FontSize="11" FontAttributes="Bold" TextColor="#668071" CharacterSpacing="1.5" />
-                <Label Text="Ajouter un ingrédient" FontSize="29" FontAttributes="Bold" TextColor="#183D33" />
+                <Label Text="NEW ELEMENT" FontSize="11" FontAttributes="Bold" TextColor="#668071" CharacterSpacing="1.5" />
+                <Label Text="Add an ingredient" FontSize="29" FontAttributes="Bold" TextColor="#183D33" />
             </VerticalStackLayout>
 
             <VerticalStackLayout Spacing="7">
-                <Label Text="Nom de l’ingrédient" FontAttributes="Bold" TextColor="#315246" />
+                <Label Text="Name of the ingredient" FontAttributes="Bold" TextColor="#315246" />
                 <Border Padding="14,6" BackgroundColor="#FFFFFF" Stroke="#D9DDD6">
                     <Border.StrokeShape>
                         <RoundRectangle CornerRadius="12" />
                     </Border.StrokeShape>
-                    <Entry Text="Avocat" MaxLength="50" TextColor="#183D33" />
+                    <Entry Placeholder="Ex: Avocado" MaxLength="50" TextColor="#183D33" />
                 </Border>
             </VerticalStackLayout>
 
@@ -31,30 +32,31 @@
                         <RoundRectangle CornerRadius="12" />
                     </Border.StrokeShape>
                     <Grid ColumnDefinitions="*,Auto">
-                        <Entry Text="160" Keyboard="Numeric" TextColor="#183D33" />
+                        <Entry Placeholder="Ex: 160" Keyboard="Numeric" TextColor="#183D33" />
                         <Label Grid.Column="1" Text="kcal" VerticalOptions="Center" TextColor="#78827D" />
                     </Grid>
                 </Border>
             </VerticalStackLayout>
 
             <VerticalStackLayout Spacing="7">
-                <Label Text="Protéines / 100 g" FontAttributes="Bold" TextColor="#315246" />
+                <Label Text="Proteins / 100 g" FontAttributes="Bold" TextColor="#315246" />
                 <Border Padding="14,6" BackgroundColor="#FFFFFF" Stroke="#D9DDD6">
                     <Border.StrokeShape>
                         <RoundRectangle CornerRadius="12" />
                     </Border.StrokeShape>
                     <Grid ColumnDefinitions="*,Auto">
-                        <Entry Text="2" Keyboard="Numeric" TextColor="#183D33" />
+                        <Entry Placeholder="Ex: 2" Keyboard="Numeric" TextColor="#183D33" />
                         <Label Grid.Column="1" Text="g" VerticalOptions="Center" TextColor="#78827D" />
                     </Grid>
                 </Border>
             </VerticalStackLayout>
 
-            <Label Text="✓  Les valeurs saisies sont valides." Padding="14"
-                   BackgroundColor="#EEF4D7" TextColor="#315246" FontSize="12" />
-            <Button Text="Enregistrer l’ingrédient" Padding="16" CornerRadius="12"
+            <!-- A intégrer logique métier pour affichage du message si valeurs pas ok ou bizarre-->
+            <!--<Label Text="✓  Les valeurs saisies sont valides." Padding="14"
+                   BackgroundColor="#EEF4D7" TextColor="#315246" FontSize="12" /> -->
+            <Button Text="Save the ingredient" Clicked="SaveIngredient" Padding="16" CornerRadius="12"
                     BackgroundColor="#19483B" TextColor="#FFFFFF" FontAttributes="Bold" />
-            <Button Text="Annuler" BackgroundColor="Transparent" TextColor="#668071" />
+            <Button Text="Cancel" Clicked="CancelButton" BackgroundColor="Transparent" TextColor="#668071" />
         </VerticalStackLayout>
     </ScrollView>
 </ContentPage>
