@@ -106,8 +106,11 @@ namespace appFilRouge.Services
             try
             {
                 var s = await LoadAsync();
+
                 // Check if any meals has in its items the id corresponding to the ingredient to be deleted
                 bool inUse = s.Meals.Any(m => m.Items.Any(item => item.IngredientId == id));
+
+                // If ingredient is used then refuse to delete
                 if (inUse) { return false; }
                 s.Ingredients.RemoveAll(i => i.Id == id);
                 await SaveAsync();
@@ -116,26 +119,57 @@ namespace appFilRouge.Services
             finally { _lock.Release(); }
         }
 
-        Task IDataService.DeleteMealAsync(Guid id)
+        public async Task SaveMealAsync(Meal meal)
         {
-            throw new NotImplementedException();
+            await _lock.WaitAsync();
+            try
+            {
+                var s = await LoadAsync();
+                var index = s.Meals.FindIndex(i => i.Id == meal.Id);
+                if (index >= 0)
+                {
+                    s.Meals[index] = meal;
+                }
+                else { s.Meals.Add(meal); }
+                await SaveAsync();
+            }
+            finally { _lock.Release(); }
+        }
+        public async Task DeleteMealAsync(Guid id)
+        {
+            await _lock.WaitAsync();
+            try
+            {
+                var s = await LoadAsync();
+                s.Meals.RemoveAll(i => i.Id == id);
+                await SaveAsync();
+            }
+            finally { _lock.Release(); }
+        }
+        public async Task<List<Meal>> GetMealsUsingIngredientAsync(Guid ingredientId)
+        {
+            await _lock.WaitAsync();
+            try 
+            {
+                var s = await LoadAsync();
+                return s.Meals
+                .Where(m => m.Items.Any(item => item.IngredientId == ingredientId))
+                .OrderBy(m => m.Name)
+                .ToList();
+            }
+            finally { _lock.Release(); }
         }
 
-        Task<List<Meal>> IDataService.GetMealsAsync()
+        public async Task<List<Meal>> GetMealsAsync()
         {
-            throw new NotImplementedException();
+            await _lock.WaitAsync();
+            try
+            {
+                var s = await LoadAsync();
+                return s.Meals.OrderBy(m => m.Name).ToList();
+            }
+            finally { _lock.Release(); }
         }
 
-        Task<List<Meal>> IDataService.GetMealsUsingIngredientAsync(Guid ingredientId)
-        {
-            throw new NotImplementedException();
-        }
-
-        
-
-        Task IDataService.SaveMealAsync(Meal meal)
-        {
-            throw new NotImplementedException();
-        }
     }
 }
