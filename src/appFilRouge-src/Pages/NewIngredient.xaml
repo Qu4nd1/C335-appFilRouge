@@ -19,7 +19,7 @@
                     <Border.StrokeShape>
                         <RoundRectangle CornerRadius="12" />
                     </Border.StrokeShape>
-                    <Entry Placeholder="Ex: Avocado" MaxLength="50" TextColor="#183D33" />
+                    <Entry Text="{Binding Name}" Placeholder="Ex: Avocado" MaxLength="50" TextColor="#183D33" />
                 </Border>
             </VerticalStackLayout>
 
@@ -30,7 +30,7 @@
                         <RoundRectangle CornerRadius="12" />
                     </Border.StrokeShape>
                     <Grid ColumnDefinitions="*,Auto">
-                        <Entry Placeholder="Ex: 160" Keyboard="Numeric" TextColor="#183D33" />
+                        <Entry Text="{Binding Calories}" Placeholder="Ex: 160" Keyboard="Numeric" TextColor="#183D33" />
                         <Label Grid.Column="1" Text="kcal" VerticalOptions="Center" TextColor="#78827D" />
                     </Grid>
                 </Border>
@@ -43,7 +43,7 @@
                         <RoundRectangle CornerRadius="12" />
                     </Border.StrokeShape>
                     <Grid ColumnDefinitions="*,Auto">
-                        <Entry Placeholder="Ex: 2" Keyboard="Numeric" TextColor="#183D33" />
+                        <Entry Text="{Binding Proteins}" Placeholder="Ex: 2" Keyboard="Numeric" TextColor="#183D33" />
                         <Label Grid.Column="1" Text="g" VerticalOptions="Center" TextColor="#78827D" />
                     </Grid>
                 </Border>
@@ -52,9 +52,9 @@
             <!-- A intégrer logique métier pour affichage du message si valeurs pas ok ou bizarre-->
             <!--<Label Text="✓  Les valeurs saisies sont valides." Padding="14"
                    BackgroundColor="#EEF4D7" TextColor="#315246" FontSize="12" /> -->
-            <Button Text="Save the ingredient" Clicked="SaveIngredient" Padding="16" CornerRadius="12"
+            <Button Text="Save the ingredient" Command="{Binding SaveCommand}" Padding="16" CornerRadius="12"
                     BackgroundColor="#19483B" TextColor="#FFFFFF" FontAttributes="Bold" />
-            <Button Text="Cancel" Clicked="CancelButton" BackgroundColor="Transparent" TextColor="#668071" />
+            <Button Text="Cancel" Command="{Binding CancelCommand}" BackgroundColor="Transparent" TextColor="#668071" />
         </VerticalStackLayout>
     </ScrollView>
 </ContentPage>

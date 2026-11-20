@@ -1,5 +1,6 @@
 ﻿using Microsoft.Extensions.Logging;
 using appFilRouge.Services;
+using appFilRouge.ViewModels;
 
 namespace appFilRouge
 {
@@ -18,6 +19,9 @@ namespace appFilRouge
 
             builder.Services.AddSingleton<IDataService, JsonDataService>();
 
+            // New ingredient form
+            builder.Services.AddTransient<NewIngredientViewModel>();
+            builder.Services.AddTransient<NewIngredient>();
 #if DEBUG
             builder.Logging.AddDebug();
 #endif
