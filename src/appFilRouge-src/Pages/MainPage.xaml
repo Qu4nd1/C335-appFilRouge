@@ -41,46 +41,54 @@
                     <CollectionView ItemsSource="{Binding Ingredients}">
                         <CollectionView.ItemTemplate>
                             <DataTemplate x:DataType="models:Ingredient">
-                                <Grid RowDefinitions="Auto,1">
+                                <SwipeView>
+                                    <SwipeView.RightItems>
+                                        <SwipeItems>
+                                            <SwipeItem Text="Edit"
+                                               IconImageSource="edit.png"
+                                               BackgroundColor="LightGreen" />
+                                            <SwipeItem Text="Delete"
+                                               IconImageSource="delete.png"
+                                               BackgroundColor="PeachPuff" />
+                                        </SwipeItems>
+                                    </SwipeView.RightItems>
+                                    <Grid RowDefinitions="Auto,1">
+                                        <!-- the row -->
+                                        <Grid Padding="0,10" ColumnDefinitions="48,*,Auto">
+                                            <Border WidthRequest="38" HeightRequest="38"
+                                                HorizontalOptions="Start" VerticalOptions="Center"
+                                                BackgroundColor="{Binding Name, Converter={StaticResource NameToColor}}"
+                                                StrokeThickness="0">
+                                                <Border.StrokeShape>
+                                                    <RoundRectangle CornerRadius="19" />
+                                                </Border.StrokeShape>
+                                                <Label Text="{Binding Initials}" HorizontalOptions="Center" VerticalOptions="Center"
+                                                    FontSize="11" FontAttributes="Bold" TextColor="#183D33" />
+                                            </Border>
 
-                                    <!-- the row -->
-                                    <Grid Padding="0,10" ColumnDefinitions="48,*,Auto">
-                                        <Border WidthRequest="38" HeightRequest="38"
-                                            HorizontalOptions="Start" VerticalOptions="Center"
-                                            BackgroundColor="{Binding Name, Converter={StaticResource NameToColor}}"
-                                            StrokeThickness="0">    
-                                            <Border.StrokeShape>
-                                                <RoundRectangle CornerRadius="19" />
-                                            </Border.StrokeShape>
-                                            <Label Text="{Binding Initials}" HorizontalOptions="Center" VerticalOptions="Center"
-                                                FontSize="11" FontAttributes="Bold" TextColor="#183D33" />
-                                        </Border>
+                                            <VerticalStackLayout Grid.Column="1" Spacing="2" VerticalOptions="Center">
+                                                <Label Text="{Binding Name}" FontAttributes="Bold" TextColor="#183D33" />
+                                                <Label FontSize="12" TextColor="#78827D">
+                                                    <Label.FormattedText>
+                                                        <FormattedString>
+                                                            <Span Text="{Binding CaloriesPer100g, StringFormat='{0:0.#} kcal'}" TextColor="#78827D" />
+                                                            <Span Text="{Binding ProteinsPer100g, StringFormat='  ·  {0:0.#} g prot. / 100 g'}" TextColor="#78827D" />
+                                                        </FormattedString>
+                                                    </Label.FormattedText>
+                                                </Label>
+                                            </VerticalStackLayout>
 
-                                        <VerticalStackLayout Grid.Column="1" Spacing="2" VerticalOptions="Center">
-                                            <Label Text="{Binding Name}" FontAttributes="Bold" TextColor="#183D33" />
-                                            <Label FontSize="12" TextColor="#78827D">
-                                                <Label.FormattedText>
-                                                    <FormattedString>
-                                                        <Span Text="{Binding CaloriesPer100g, StringFormat='{0:0.#} kcal'}" TextColor="#78827D" />
-                                                        <Span Text="{Binding ProteinsPer100g, StringFormat='  ·  {0:0.#} g prot. / 100 g'}" TextColor="#78827D" />
-                                                    </FormattedString>
-                                                </Label.FormattedText>
-                                            </Label>
-                                        </VerticalStackLayout>
+                                            <Label Grid.Column="2" Text="›" FontSize="24" TextColor="#89908C" VerticalOptions="Center" />
+                                        </Grid>
 
-                                        <Label Grid.Column="2" Text="›" FontSize="24" TextColor="#89908C" VerticalOptions="Center" />
+                                        <!-- the separator line -->
+                                        <BoxView Grid.Row="1" HeightRequest="1" Color="#EEECE6" />
                                     </Grid>
-
-                                    <!-- the separator line -->
-                                    <BoxView Grid.Row="1" HeightRequest="1" Color="#EEECE6" />
-                                </Grid>
+                                </SwipeView>
                             </DataTemplate>
                         </CollectionView.ItemTemplate>
                     </CollectionView>
                 </Border>
-
-                <Label Text="Les valeurs sont calculées pour 100 g." Padding="14"
-                       BackgroundColor="#EEF4D7" TextColor="#315246" FontSize="12" />
             </VerticalStackLayout>
         </ScrollView>
     </Grid>
