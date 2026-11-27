@@ -6,8 +6,8 @@
     xmlns:models="clr-namespace:appFilRouge.Models"
     xmlns:conv="clr-namespace:appFilRouge.Converters"
     x:Class="appFilRouge.MainPage"
+    x:Name="Page"
     x:DataType="vm:IngredientsViewModel"
-    Title="Ingrédients"
     BackgroundColor="#FBFAF6">
     
     <ContentPage.Resources>
@@ -43,16 +43,53 @@
                             <DataTemplate x:DataType="models:Ingredient">
                                 <SwipeView>
                                     <SwipeView.RightItems>
-                                        <SwipeItems>
-                                            <SwipeItem Text="Edit"
-                                               IconImageSource="edit.png"
-                                               BackgroundColor="LightGreen" />
-                                            <SwipeItem Text="Delete"
-                                               IconImageSource="delete.png"
-                                               BackgroundColor="PeachPuff" />
+                                        <SwipeItems Mode="Reveal" SwipeBehaviorOnInvoked="Close">
+                                            <SwipeItemView WidthRequest="80">
+                                                <Grid BackgroundColor="LightGreen">
+                                                    <VerticalStackLayout Spacing="4"
+                                                        HorizontalOptions="Center"
+                                                        VerticalOptions="Center">
+                                                        <Image Source="edit.png"
+                                                           WidthRequest="24" HeightRequest="24"
+                                                           HorizontalOptions="Center" />
+                                                        <Label Text="Edit"
+                                                           HorizontalOptions="Center"
+                                                           FontSize="12"
+                                                           FontAttributes="Bold"
+                                                           TextColor="#183D33" />
+                                                    </VerticalStackLayout>
+                                                    <Grid.GestureRecognizers>
+                                                        <TapGestureRecognizer
+                                                            Command="{Binding BindingContext.EditCommand, Source={x:Reference Page}, x:DataType=ContentPage}"
+                                                            CommandParameter="{Binding .}" />
+                                                    </Grid.GestureRecognizers>
+                                                </Grid>
+                                            </SwipeItemView>
+
+                                            <SwipeItemView WidthRequest="80">
+                                                <Grid BackgroundColor="PeachPuff">
+                                                    <VerticalStackLayout Spacing="4"
+                                                        HorizontalOptions="Center"
+                                                        VerticalOptions="Center">
+                                                        <Image Source="delete.png"
+                                                            WidthRequest="24" HeightRequest="24"
+                                                            HorizontalOptions="Center" />
+                                                        <Label Text="Delete"
+                                                           HorizontalOptions="Center"
+                                                           FontSize="12"
+                                                           FontAttributes="Bold"
+                                                           TextColor="#183D33" />
+                                                    </VerticalStackLayout>
+                                                    <Grid.GestureRecognizers>
+                                                        <TapGestureRecognizer
+                                                            Command="{Binding BindingContext.DeleteCommand, Source={x:Reference Page}, x:DataType=ContentPage}"
+                                                            CommandParameter="{Binding .}" />
+                                                    </Grid.GestureRecognizers>
+                                                </Grid>
+                                            </SwipeItemView>
                                         </SwipeItems>
                                     </SwipeView.RightItems>
-                                    <Grid RowDefinitions="Auto,1">
+                                    <Grid RowDefinitions="Auto,1" BackgroundColor="#FFFFFF">
                                         <!-- the row -->
                                         <Grid Padding="0,10" ColumnDefinitions="48,*,Auto">
                                             <Border WidthRequest="38" HeightRequest="38"

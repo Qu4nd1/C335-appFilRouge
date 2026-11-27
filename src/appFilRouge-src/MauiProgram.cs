@@ -25,6 +25,7 @@ namespace appFilRouge
 
             builder.Services.AddTransient<IngredientsViewModel>();
             builder.Services.AddTransient<MainPage>();
+            System.Diagnostics.Debug.WriteLine("BOUM" + FileSystem.AppDataDirectory);
 #if DEBUG
             builder.Logging.AddDebug();
 #endif
